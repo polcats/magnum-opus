@@ -1,10 +1,5 @@
-import { Box, Button, Container, Paper, Typography } from '@mui/material';
+import Landing from '@/features/landing';
 
 export default function Home() {
-  return (
-    <Box>
-      <Typography variant="body1">Hello world!</Typography>
-      <Button>Click me!</Button>
-    </Box>
-  );
+  return <Landing />;
 }

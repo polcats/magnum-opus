@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
 
 import { CssBaseline } from '@mui/material';
-import theme from '@/constants/theme';
+import { MuiThemeProvider } from '@/provider/mui-theme-wrapper';
+import { ThemeProvider } from '@/provider/theme';
 
 export const metadata: Metadata = {
   title: 'Paul Jimuel Catalan',
@@ -16,13 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-          <CssBaseline />
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <ThemeProvider>
+        <MuiThemeProvider>
+          <html lang="en">
+            <CssBaseline />
+            <body>{children}</body>
+          </html>
+        </MuiThemeProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }
