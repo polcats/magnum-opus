@@ -1,8 +1,9 @@
 'use client';
 
-import { commonThemeOptions } from '@/constants/theme';
 import { createTheme, Theme } from '@mui/material';
 import React, { useCallback, useMemo, useState } from 'react';
+
+import { commonThemeOptions } from '@/constants/theme';
 
 type Mode = 'light' | 'dark';
 
@@ -27,7 +28,7 @@ export const ThemeProvider: React.FC<ThemeProps> = ({ children }) => {
     setMode((current) => (current === 'dark' ? 'light' : 'dark'));
   }, []);
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {

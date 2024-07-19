@@ -1,7 +1,8 @@
 'use client';
 
-import { useTheme } from '@/hooks/useTheme';
 import { Button, Container, Typography } from '@mui/material';
+
+import { useTheme } from '@/hooks/useTheme';
 
 export default function Landing() {
   const { toggleMode } = useTheme();

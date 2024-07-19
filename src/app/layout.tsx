@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-
 import { CssBaseline } from '@mui/material';
+
 import { MuiThemeProvider } from '@/provider/mui-theme-wrapper';
 import { ThemeProvider } from '@/provider/theme';
 

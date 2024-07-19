@@ -1,7 +1,8 @@
 'use client';
 
-import { useTheme } from '@/hooks/useTheme';
 import { ThemeProvider } from '@mui/material/styles';
+
+import { useTheme } from '@/hooks/useTheme';
 
 export const MuiThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { theme } = useTheme();
