@@ -1,6 +1,6 @@
 'use client';
 
-import { Roboto } from 'next/font/google';
+import { Montserrat, Roboto } from 'next/font/google';
 import { ThemeOptions } from '@mui/material/styles';
 
 const roboto = Roboto({
@@ -9,8 +9,14 @@ const roboto = Roboto({
   display: 'swap',
 });
 
+const monserrat = Montserrat({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
 export const commonThemeOptions: ThemeOptions = {
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: monserrat.style.fontFamily,
   },
 };

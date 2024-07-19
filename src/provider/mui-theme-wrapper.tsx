@@ -2,9 +2,9 @@
 
 import { ThemeProvider } from '@mui/material/styles';
 
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 export const MuiThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { theme } = useTheme();
+  const { theme } = useThemeSwitcher();
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
