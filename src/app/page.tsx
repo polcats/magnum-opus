@@ -1,5 +1,5 @@
 import Landing from '@/features/landing';
 
-export default function Home() {
+export default function LandingPage() {
   return <Landing />;
 }

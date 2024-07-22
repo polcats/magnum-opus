@@ -1,27 +1,40 @@
 'use client';
 
-import { Box, Button, Container, Link, Typography, useTheme } from '@mui/material';
-import FileDownloadRoundedIcon from '@mui/icons-material/FileDownloadRounded';
+import { AppBar, Box, Button, Divider, Link, Toolbar, Typography, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
+const navItems = ['Home', 'Projects', 'Contact'];
+
 export default function Landing() {
   const theme = useTheme();
   return (
     <>
+      <AppBar component="nav" sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Toolbar sx={{ justifyContent: 'flex-end' }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {navItems.map((item) => (
+              <Button key={item} sx={{ color: '#fff' }} href={`#${item}`}>
+                {item}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
       <Box
+        id="Home"
         sx={{
           display: 'flex',
-          minHeight: 600,
+          minHeight: 800,
           py: 6,
-          px: 6,
+          px: { xs: 3, sm: 6 },
           backgroundColor: theme.palette.grey[900],
           justifyContent: 'center',
         }}
       >
-        <Box sx={{ width: 1000, alignSelf: 'center' }}>
+        <Box sx={{ width: { lg: 1000, md: '100%' }, alignSelf: 'center' }}>
           <Typography variant="h2" sx={{ fontWeight: '600' }}>
             Paul Jimuel Catalan
           </Typography>
@@ -63,29 +76,76 @@ export default function Landing() {
               </Typography>
             </Link>
           </Box>
+
+          <Divider sx={{ my: 6 }} />
+
+          <Box>
+            <Typography variant="h4" sx={{ mb: 1 }}>
+              Tech Stack
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Languages:</Typography>
+              JavaScript, TypeScript, Python, C/C++
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Web:</Typography>
+              React.js, Vue.js, Next.js, HTML, CSS, jQuery, Tailwind CSS, MaterialUI, Styled
+              Components, Redux, MobX
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Mobile:</Typography>
+              React Native, Expo, NativeWind, MaterialUI, UI Kitten, Styled Components, Redux,
+              MobX-Keystone, Dart, Flutter
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Backend:</Typography> Django, Node.js,
+              Express.js, GraphQL, RESTful APIs
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Databases:</Typography> PostgreSQL, MariaDB,
+              MySQL, MongoDB
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>DevOps:</Typography> Git, Github, GitLab,
+              Docker, Kubernetes, Terraform
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>CMS:</Typography> Contentful, WordPress
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Data Engineering:</Typography> Pandas,
+              GeoPandas, AutoGIS, PowerBI
+            </Typography>
+            <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+              <Typography sx={{ fontWeight: '700' }}>Others:</Typography> AWS (ECR, ECS, SNS, S3),
+              Firebase (Analytics, Firestore, Functions, Messaging/Notifications), Auth0, Algolia,
+              Sentry, OneSignal
+            </Typography>
+          </Box>
         </Box>
       </Box>
       <Box
+        id="Projects"
         sx={{
           userSelect: 'none',
           display: 'flex',
           minHeight: 600,
           py: 6,
-          px: 6,
+          px: { xs: 3, sm: 6 },
           backgroundColor: theme.palette.grey[500],
           justifyContent: 'center',
         }}
       >
-        <Box sx={{ width: 1000, alignSelf: 'center' }}>
-          <Typography variant="h2" sx={{ fontWeight: '600' }}>
-            Recent Projects
+        <Box sx={{ width: { lg: 1000, md: '100%' }, alignSelf: 'center' }}>
+          <Typography variant="h3" sx={{ fontWeight: '600' }}>
+            Recent Personal Projects
           </Typography>
           <Typography
             variant="body1"
             sx={{ mt: 1, color: theme.palette.grey[100], fontStyle: 'italic' }}
           >
             These are projects that I made for my personal use, but I thought it would be cool to
-            make a playground of them integrated with my portfolio.
+            make a playground of them integrated in my portfolio.
           </Typography>
         </Box>
       </Box>
@@ -95,13 +155,13 @@ export default function Landing() {
           display: 'flex',
           minHeight: 600,
           py: 6,
-          px: 6,
+          px: { xs: 3, sm: 6 },
           backgroundColor: theme.palette.grey[900],
           justifyContent: 'center',
         }}
       >
-        <Box sx={{ width: 1000, alignSelf: 'center' }}>
-          <Typography variant="h2" sx={{ fontWeight: '600' }}>
+        <Box sx={{ width: { lg: 1000, md: '100%' }, alignSelf: 'center' }}>
+          <Typography variant="h3" sx={{ fontWeight: '600' }}>
             Recent Projects
           </Typography>
           <Typography
