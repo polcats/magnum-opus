@@ -28,7 +28,7 @@ export type PathPoint = [
   number, // latitude
   number, // longitude
   number, // altitude
-  number, // velocity
+  number, // true track
   boolean, // onGround
 ];
 
@@ -38,4 +38,9 @@ export type AircraftTrack = {
   startTime: number; // Unix timestamp
   endTime: number; // Unix timestamp
   path: PathPoint[];
+};
+
+export type SnackBar = {
+  open: boolean;
+  message: string;
 };

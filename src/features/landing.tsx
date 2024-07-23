@@ -1,28 +1,16 @@
 'use client';
 
-import { AppBar, Box, Button, Divider, Link, Toolbar, Typography, useTheme } from '@mui/material';
+import { Box, Divider, Link, Typography, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
-
-const navItems = ['Home', 'Projects', 'Contact'];
+import { Navigation } from '@/components/common/navigation';
 
 export default function Landing() {
   const theme = useTheme();
   return (
     <>
-      <AppBar component="nav" sx={{ display: { xs: 'none', sm: 'block' } }}>
-        <Toolbar sx={{ justifyContent: 'flex-end' }}>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }} href={`#${item}`}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <Navigation type="home" />
       <Box
         id="Home"
         sx={{

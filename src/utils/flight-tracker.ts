@@ -21,9 +21,10 @@ export const fetchIcao24ByFlightNumber = async (flightNumber: string) => {
       }
     }
 
-    throw new Error('No data found for this flight number');
-  } catch (error) {
-    console.error('Error fetching icao24:', error);
+    throw new Error(
+      'No data found for this flight number. Either the aircraft has not departed or has not landed.'
+    );
+  } catch (error: any) {
     throw error;
   }
 };
@@ -33,7 +34,7 @@ export const fetchAircraftData = async (icao24: string) => {
 
   try {
     const response = await axios.get(url);
-    return response.data;
+    return response.data as AircraftData;
   } catch (error) {
     console.error('Error fetching airplane data:', error);
     throw error;
