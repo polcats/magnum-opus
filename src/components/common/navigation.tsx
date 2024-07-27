@@ -3,23 +3,21 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 type Item = {
   name: string;
-  content: string; // | Item[];
+  id: string; // | Item[];
 };
 
 const NAV_ITEMS: Item[] = [
   {
-    name: 'Home',
-    content: '/',
+    name: 'Profile',
+    id: 'Profile',
   },
   {
     name: 'Projects',
-    content: '/projects',
-    // content: [
-    //   {
-    //     name: 'Flight Tracker',
-    //     content: '/flight-tracker',
-    //   },
-    // ],
+    id: 'Projects',
+  },
+  {
+    name: 'Experience',
+    id: 'Experience',
   },
 ];
 
@@ -28,13 +26,22 @@ type Props = {
 };
 
 export const Navigation: React.FC<Props> = ({ type }) => {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <AppBar component="nav" sx={{ display: { xs: 'none', sm: 'block' } }}>
       <Toolbar sx={{ justifyContent: type === 'home' ? 'flex-end' : 'flex-start' }}>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           {type === 'home' ? (
             NAV_ITEMS.map((item) => (
-              <Button key={item.name} sx={{ color: '#fff' }} href={item.content}>
+              <Button
+                key={item.name}
+                sx={{ color: '#fff' }}
+                onClick={() => scrollToSection(item.id)}
+              >
                 {item.name}
               </Button>
             ))
