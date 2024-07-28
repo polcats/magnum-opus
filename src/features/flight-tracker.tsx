@@ -37,7 +37,7 @@ export const FlightTracker = () => {
   );
 
   const latestPosition = useMemo(
-    () => (tracks ? tracks.path[tracks.path?.length - 1] : undefined),
+    () => (tracks ? tracks.path[tracks.path.length - 1] : undefined),
     [tracks]
   );
 
@@ -101,7 +101,7 @@ export const FlightTracker = () => {
   return (
     <>
       <Navigation type="subpage" />
-      <AirplaneFinder setIcao24={handleSetIcao24} handleSetMessage={handleSetMessage} />
+
       <Box
         sx={{
           justifyContent: 'center',
@@ -111,6 +111,7 @@ export const FlightTracker = () => {
           alignItems: 'center',
         }}
       >
+        <AirplaneFinder setIcao24={handleSetIcao24} handleSetMessage={handleSetMessage} />
         <AirplaneMap heading={heading} positions={positions} />
 
         {aircraftData && (
@@ -119,7 +120,10 @@ export const FlightTracker = () => {
           </Typography>
         )}
 
-        <Typography variant="caption" sx={{ textAlign: 'center', mt: 2, fontStyle: 'italic' }}>
+        <Typography
+          variant="caption"
+          sx={{ textAlign: 'center', mt: 2, fontStyle: 'italic', pl: 3, pr: 3 }}
+        >
           Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic and Matthias
           Wilhelm. &quot;Bringing Up OpenSky: A Large-scale ADS-B Sensor Network for Research&quot;.
           In Proceedings of the 13th IEEE/ACM International Symposium on Information Processing in

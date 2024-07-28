@@ -7,6 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 import { MapUpdater } from './map-updater';
+import { Box } from '@mui/material';
 
 const svgIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" height="249.84" width="248.25" version="1.0">
@@ -48,25 +49,33 @@ export const AirplaneMap: React.FC<Props> = ({ heading, positions }) => {
   );
 
   return (
-    <MapContainer
-      center={latestPosition}
-      zoom={4}
-      style={{
-        height: '500px',
-        width: '90%',
-        marginTop: 24,
+    <Box
+      sx={{
+        width: '100%',
+        mt: 2,
+        pl: 3,
+        pr: 3,
       }}
     >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors;'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <MapContainer
+        center={latestPosition}
+        zoom={4}
+        style={{
+          height: '500px',
+          width: '100%',
+        }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors;'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      {positions && positions.length > 0 && (
-        <Marker position={latestPosition} icon={createIcon(heading || 0)} />
-      )}
-      <MapUpdater center={latestPosition} />
-      <Polyline positions={positions ?? []} color="blue" />
-    </MapContainer>
+        {positions && positions.length > 0 && (
+          <Marker position={latestPosition} icon={createIcon(heading || 0)} />
+        )}
+        <MapUpdater center={latestPosition} />
+        <Polyline positions={positions ?? []} color="blue" />
+      </MapContainer>
+    </Box>
   );
 };

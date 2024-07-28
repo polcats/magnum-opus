@@ -3,7 +3,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 type Item = {
   name: string;
-  id: string; // | Item[];
+  id: string;
 };
 
 const NAV_ITEMS: Item[] = [
@@ -32,9 +32,12 @@ export const Navigation: React.FC<Props> = ({ type }) => {
   };
 
   return (
-    <AppBar component="nav" sx={{ display: { xs: 'none', sm: 'block' } }}>
+    <AppBar
+      component="nav"
+      sx={{ display: { xs: type == 'home' ? 'none' : 'block', sm: 'block' } }}
+    >
       <Toolbar sx={{ justifyContent: type === 'home' ? 'flex-end' : 'flex-start' }}>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box sx={{ display: { xs: type === 'home' ? 'none' : 'block', sm: 'block' } }}>
           {type === 'home' ? (
             NAV_ITEMS.map((item) => (
               <Button
