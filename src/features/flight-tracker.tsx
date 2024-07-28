@@ -16,10 +16,11 @@ import { ExpandMore } from '@mui/icons-material';
 import { AirplaneFinder } from '@/components/flight-tracker/finder';
 import { AirplaneMap } from '@/components/flight-tracker/map';
 import { AircraftTrack, AircraftData, SnackBar } from '@/types/flight-tracker';
-import { fetchAircraftData, fetchAirplaneTracks } from '@/utils/flight-tracker';
 import { Navigation } from '@/components/common/navigation';
+import { useApi } from '@/hooks/useApi';
 
 export const FlightTracker = () => {
+  const api = useApi();
   const [aircraftData, setAircraftData] = useState<AircraftData | null>(null);
   const [icao24, setIcao24] = useState<string | null>(null);
   const [tracks, setTracks] = useState<AircraftTrack | null>(null);
@@ -40,8 +41,8 @@ export const FlightTracker = () => {
   );
 
   const heading = useMemo(
-    () => aircraftData?.states[aircraftData?.states.length - 1][10],
-    [aircraftData?.states]
+    () => (aircraftData ? aircraftData.states[aircraftData.states.length - 1][10] : 0),
+    [aircraftData]
   );
 
   const handleSetIcao24 = useCallback((_icao24: string) => {
@@ -53,20 +54,23 @@ export const FlightTracker = () => {
     setSnackBar((current) => ({ ...current, open: true, message }));
   }, []);
 
-  const getFlightData = useCallback(async (_icao24: string) => {
-    try {
-      const tracks = await fetchAirplaneTracks(_icao24);
-      const data = await fetchAircraftData(_icao24);
-      setTracks(tracks);
-      setAircraftData(data);
-    } catch (e) {
-      console.log(e);
-      setSnackBar((current) => ({
-        ...current,
-        message: 'Oops! Something went wrong. Please try again.',
-      }));
-    }
-  }, []);
+  const getFlightData = useCallback(
+    async (_icao24: string) => {
+      try {
+        const tracks = await api.flightTracker.fetchAirplaneTracks(_icao24);
+        const data = await api.flightTracker.fetchAircraftData(_icao24);
+        setTracks(tracks);
+        setAircraftData(data);
+      } catch (e) {
+        console.log(e);
+        setSnackBar((current) => ({
+          ...current,
+          message: 'Oops! Something went wrong. Please try again.',
+        }));
+      }
+    },
+    [api.flightTracker]
+  );
 
   useEffect(() => {
     if (!initialFetch.current || !icao24) {

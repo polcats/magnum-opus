@@ -7,6 +7,12 @@ import { ProjectCard } from './card';
 
 const projects: ProjectCard[] = [
   {
+    title: 'Profile Website',
+    description:
+      'This updated website that showcases my skills, projects, and experiences. It is built with React, NextJS, TypeScript, and Material-UI.',
+    icon: <WebIcon sx={{ fontSize: 50 }} />,
+  },
+  {
     title: 'Flight Tracker',
     description:
       'An app that tracks flights in real-time using the OpenSky Network API. It displays flight information, such as the flight number, origin, destination, and altitude.',
@@ -14,12 +20,6 @@ const projects: ProjectCard[] = [
     image: '/projects/flight-tracker.png',
     href: '/flight-tracker',
     beta: true,
-  },
-  {
-    title: 'Profile Website',
-    description:
-      'This updated website that showcases my skills, projects, and experiences. It is built with React, NextJS, TypeScript, and Material-UI.',
-    icon: <WebIcon sx={{ fontSize: 50 }} />,
   },
   {
     title: 'TBA',

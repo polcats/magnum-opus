@@ -1,10 +1,8 @@
-'use client';
-
 import React, { useCallback, useState } from 'react';
-import { TextField, Button, Container, Box } from '@mui/material';
+import { TextField, Container, Box } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-import { fetchIcao24ByFlightNumber } from '../../utils/flight-tracker';
+import { useApi } from '@/hooks/useApi';
 
 type Props = {
   setIcao24: (icao24: string) => void;
@@ -12,6 +10,7 @@ type Props = {
 };
 
 export const AirplaneFinder: React.FC<Props> = ({ setIcao24, handleSetMessage }) => {
+  const api = useApi();
   const [flightNumber, setFlightNumber] = useState('');
   const [locked, setLocked] = useState(false);
 
@@ -19,16 +18,17 @@ export const AirplaneFinder: React.FC<Props> = ({ setIcao24, handleSetMessage })
     setLocked(true);
 
     try {
-      const icao24 = await fetchIcao24ByFlightNumber(flightNumber);
+      const icao24 = await api.flightTracker.fetchIcao24ByFlightNumber(flightNumber);
       setIcao24(icao24);
     } catch (error: any) {
+      console.log('Error:', error);
       if (error.message) {
         handleSetMessage(error.message);
       }
     } finally {
       setLocked(false);
     }
-  }, [flightNumber, handleSetMessage, setIcao24]);
+  }, [api.flightTracker, flightNumber, handleSetMessage, setIcao24]);
 
   return (
     <Container sx={{ mt: 12 }}>
