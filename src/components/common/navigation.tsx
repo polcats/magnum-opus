@@ -34,9 +34,20 @@ export const Navigation: React.FC<Props> = ({ type }) => {
   return (
     <AppBar
       component="nav"
-      sx={{ display: { xs: type == 'home' ? 'none' : 'block', sm: 'block' } }}
+      sx={{
+        display: { xs: type == 'home' ? 'none' : 'block', sm: 'block' },
+        justifyContent: 'center',
+        width: '100%',
+      }}
     >
-      <Toolbar sx={{ justifyContent: type === 'home' ? 'flex-end' : 'flex-start' }}>
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: type === 'home' ? 'flex-end' : 'flex-start',
+          alignSelf: 'center',
+          width: '100%',
+        }}
+      >
         <Box sx={{ display: { xs: type === 'home' ? 'none' : 'block', sm: 'block' } }}>
           {type === 'home' ? (
             NAV_ITEMS.map((item) => (
