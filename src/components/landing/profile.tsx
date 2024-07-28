@@ -4,6 +4,80 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import { Section } from './section';
 
+type SkillSet = {
+  title: string;
+  items: string[];
+};
+
+const TechStack: SkillSet[] = [
+  {
+    title: 'Languages',
+    items: ['JavaScript', 'TypeScript', 'Python', 'C/C++'],
+  },
+  {
+    title: 'Web',
+    items: [
+      'React.js',
+      'Vue.js',
+      'Next.js',
+      'HTML',
+      'CSS',
+      'jQuery',
+      'Tailwind CSS',
+      'Material-UI',
+      'Styled Components',
+      'Redux',
+      'MobX',
+    ],
+  },
+  {
+    title: 'Mobile',
+    items: [
+      'React Native',
+      'Expo',
+      'NativeWind',
+      'MaterialUI',
+      'UI Kitten',
+      'Styled Components',
+      'Redux',
+      'MobX-Keystone',
+      'Dart',
+      'Flutter',
+    ],
+  },
+  {
+    title: 'Backend',
+    items: ['Django', 'Node.js', 'Express.js', 'GraphQL', 'RESTful APIs'],
+  },
+  {
+    title: 'Databases',
+    items: ['PostgreSQL', 'MariaDB', 'MySQL', 'MongoDB'],
+  },
+  {
+    title: 'DevOps',
+    items: ['Git', 'GitHub', 'GitLab', 'Docker', 'Kubernetes', 'Terraform'],
+  },
+  {
+    title: 'CMS',
+    items: ['Contentful', 'WordPress'],
+  },
+  {
+    title: 'Data Engineering',
+    items: ['Pandas', 'GeoPandas', 'AutoGIS', 'Power BI'],
+  },
+  {
+    title: 'Others',
+    items: [
+      'AWS (ECR, ECS, SNS, S3)',
+      'Firebase (Analytics, Firestore, Functions, Messaging/Notifications)',
+      'Auth0',
+      'Algolia',
+      'Sentry',
+      'OneSignal',
+    ],
+  },
+];
+
 export const ProfileSection = () => {
   const theme = useTheme();
   return (
@@ -54,44 +128,12 @@ export const ProfileSection = () => {
           <Typography variant="h4" sx={{ mb: 1 }}>
             Tech Stack
           </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Languages:</Typography>
-            JavaScript, TypeScript, Python, C/C++
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Web:</Typography>
-            React.js, Vue.js, Next.js, HTML, CSS, jQuery, Tailwind CSS, Material-UI, Styled
-            Components, Redux, MobX
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Mobile:</Typography>
-            React Native, Expo, NativeWind, MaterialUI, UI Kitten, Styled Components, Redux,
-            MobX-Keystone, Dart, Flutter
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Backend:</Typography> Django, Node.js,
-            Express.js, GraphQL, RESTful APIs
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Databases:</Typography> PostgreSQL, MariaDB,
-            MySQL, MongoDB
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>DevOps:</Typography> Git, GitHub, GitLab, Docker,
-            Kubernetes, Terraform
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>CMS:</Typography> Contentful, WordPress
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Data Engineering:</Typography> Pandas, GeoPandas,
-            AutoGIS, Power BI
-          </Typography>
-          <Typography sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
-            <Typography sx={{ fontWeight: '700' }}>Others:</Typography> AWS (ECR, ECS, SNS, S3),
-            Firebase (Analytics, Firestore, Functions, Messaging/Notifications), Auth0, Algolia,
-            Sentry, OneSignal
-          </Typography>
+          {TechStack.map((skillset) => (
+            <Typography key={skillset.title} sx={{ fontWeight: '700' }}>
+              {skillset.title}:{' '}
+              <Typography component="span">{skillset.items.join(', ')}</Typography>
+            </Typography>
+          ))}
         </Box>
       </Box>
     </Section>
