@@ -1,8 +1,7 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   "plugins": ["import"],
   "rules": {
-    "no-unused-vars": "warn",
     "import/order": [
       "warn",
       {
