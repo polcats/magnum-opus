@@ -31,7 +31,12 @@ export const ProjectsSection = () => {
   const theme = useTheme();
   return (
     <Section id="Projects" alt>
-      <Box sx={{ width: { lg: 1000, md: '100%' }, alignSelf: 'center' }}>
+      <Box
+        sx={{
+          width: { s: '100%', md: 900 },
+          alignSelf: 'center',
+        }}
+      >
         <Typography variant="h3" sx={{ fontWeight: '600' }}>
           Recent Projects (2024)
         </Typography>

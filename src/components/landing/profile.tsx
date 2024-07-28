@@ -82,7 +82,7 @@ export const ProfileSection = () => {
   const theme = useTheme();
   return (
     <Section id="Profile">
-      <Box sx={{ width: { lg: 1000, md: '100%' }, alignSelf: 'center' }}>
+      <Box sx={{ width: { s: '100%', md: 900 }, alignSelf: 'center' }}>
         <Typography variant="h2" sx={{ fontWeight: '600' }}>
           Paul Jimuel Catalan
         </Typography>
