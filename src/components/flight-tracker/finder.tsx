@@ -25,9 +25,9 @@ export const AirplaneFinder: React.FC<Props> = ({ setIcao24, handleSetMessage })
       const icao24 = await api.flightTracker.fetchIcao24ByFlightNumber(flightNumber);
       setIcao24(icao24);
     } catch (error: any) {
-      console.log('Error:', error);
-      if (error.message) {
-        handleSetMessage(error.message);
+      const message = error.response?.data || error.message;
+      if (message) {
+        handleSetMessage(message);
       }
     } finally {
       setLocked(false);

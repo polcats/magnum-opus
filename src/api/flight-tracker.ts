@@ -24,7 +24,7 @@ export class FlightTrackerAPI {
       throw new Error(
         'No data found for this flight number. Either the aircraft has not departed or has already landed.'
       );
-    } catch (error) {
+    } catch (error: any) {
       console.log('Error fetching icao24:', error);
       throw error;
     }
