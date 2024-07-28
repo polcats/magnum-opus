@@ -12,7 +12,7 @@ export const Section: React.FC<Props> = ({ id, alt, children }) => {
       id={id}
       sx={{
         display: 'flex',
-        minHeight: '90vh',
+        minHeight: '90vh', // intentional: I want the adjacent section(s) to be partially visible
         py: 6,
         px: { xs: 3, sm: 6 },
         backgroundColor: theme.palette.grey[alt ? 500 : 900],
