@@ -34,6 +34,7 @@ export const ProjectCard: React.FC<ProjectCard> = ({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
+          backgroundColor: theme.palette.background.default,
         }}
         {...(href ? { href } : {})}
       >
@@ -49,7 +50,7 @@ export const ProjectCard: React.FC<ProjectCard> = ({
               alignContent: 'center',
               textAlign: 'center',
               borderBottom: '1px solid #000',
-              backgroundColor: theme.palette.grey[800],
+              backgroundColor: theme.palette.grey[700],
             }}
           >
             <>{icon ?? <QuestionMark sx={{ fontSize: 100 }} />}</>

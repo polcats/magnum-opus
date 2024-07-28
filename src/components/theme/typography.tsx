@@ -1,11 +1,9 @@
-import { SxProps, Theme, Typography, TypographyOwnProps, TypographyProps } from '@mui/material';
-import { useMemo } from 'react';
+import { SxProps, Theme, Typography, TypographyOwnProps } from '@mui/material';
+import React, { useMemo } from 'react';
 import { ResponsiveStyleValue } from '@mui/system';
 import { Property } from 'csstype';
 
-type Props = TypographyOwnProps & {};
-
-export const ResponsiveTypography: React.FC<Props> = ({ children, sx, ...props }) => {
+const _ResponsiveTypography: React.FC<TypographyOwnProps> = ({ children, sx, ...props }) => {
   const fontSize: ResponsiveStyleValue<Property.FontSize<string | number>> | undefined =
     useMemo(() => {
       switch (props.variant) {
@@ -44,3 +42,5 @@ export const ResponsiveTypography: React.FC<Props> = ({ children, sx, ...props }
     </Typography>
   );
 };
+
+export const ResponsiveTypography = React.memo(_ResponsiveTypography);

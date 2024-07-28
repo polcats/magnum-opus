@@ -15,7 +15,7 @@ export const Section: React.FC<Props> = ({ id, alt, children }) => {
         minHeight: '90vh', // intentional: I want the adjacent section(s) to be partially visible
         py: 6,
         px: { xs: 3, sm: 6 },
-        backgroundColor: theme.palette.grey[alt ? 500 : 900],
+        backgroundColor: alt ? theme.palette.grey[900] : theme.palette.background.default,
         justifyContent: 'center',
       }}
     >
