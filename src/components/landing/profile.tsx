@@ -1,8 +1,9 @@
-import { Box, Divider, Link, Typography, useTheme } from '@mui/material';
+import { Box, Divider, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { Section } from './section';
+import { ResponsiveTypography } from '../theme/typography';
 
 type SkillSet = {
   title: string;
@@ -80,56 +81,78 @@ const TechStack: SkillSet[] = [
 
 export const ProfileSection = () => {
   const theme = useTheme();
+  const lessThanSmall = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Section id="Profile">
-      <Box sx={{ width: { s: '100%', md: 900 }, alignSelf: 'center' }}>
-        <Typography variant="h2" sx={{ fontWeight: '600' }}>
+      <Box sx={{ width: { xs: '100%', md: 900 }, alignSelf: 'center' }}>
+        <ResponsiveTypography variant="h2" sx={{ fontWeight: '600' }}>
           Paul Jimuel Catalan
-        </Typography>
-        <Typography variant="h4" sx={{ color: theme.palette.grey[500] }}>
+        </ResponsiveTypography>
+        <ResponsiveTypography variant="h4" sx={{ color: theme.palette.grey[500] }}>
           Full Stack Software Engineer
-        </Typography>
+        </ResponsiveTypography>
 
-        <Typography variant="body1" sx={{ mt: 1, color: theme.palette.grey[500] }}>
+        <ResponsiveTypography variant="body1" sx={{ mt: 1, color: theme.palette.grey[500] }}>
           Skilled Software Engineer with extensive experience in mobile, web, and API development.
-        </Typography>
+        </ResponsiveTypography>
 
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
+            flexWrap: 'wrap',
             alignItems: 'center',
             gap: 2,
             mt: 2,
           }}
         >
           <Link href="https://github.com/polcats" sx={{ display: 'block', width: 25, height: 28 }}>
-            <GitHubIcon sx={{ fontSize: 30 }} color="action" />
+            <GitHubIcon sx={{ fontSize: 30 }} color="action" titleAccess="GitHub" />
           </Link>
           <Link
             href="https://linkedin.com/in/polcats"
             sx={{ display: 'block', width: 30, height: 28 }}
           >
-            <LinkedInIcon sx={{ fontSize: 34 }} color="action" />
+            <LinkedInIcon sx={{ fontSize: 34 }} color="action" titleAccess="LinkedIn" />
           </Link>
-          <Link href="mailto:hello@paulcatalan.dev" sx={{ height: 24 }}>
-            <Typography
-              variant="h6"
-              sx={{ color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000' }}
-            >
-              hello@paulcatalan.dev
-            </Typography>
+          <Link
+            href="mailto:hello@paulcatalan.dev"
+            sx={{
+              ml: {
+                xs: '-3px',
+                sm: 0,
+              },
+              width: {
+                xs: 30,
+                sm: 'auto',
+              },
+              height: {
+                xs: 28,
+                sm: 24,
+              },
+            }}
+          >
+            {lessThanSmall ? (
+              <AlternateEmailIcon sx={{ fontSize: 34 }} color="action" titleAccess="Email" />
+            ) : (
+              <Typography
+                variant="h6"
+                sx={{ color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000' }}
+              >
+                hello@paulcatalan.dev
+              </Typography>
+            )}
           </Link>
         </Box>
 
         <Divider sx={{ my: 6 }} />
 
         <Box>
-          <Typography variant="h4" sx={{ mb: 1 }}>
-            Tech Stack
-          </Typography>
+          <ResponsiveTypography variant="h4" sx={{ mb: 1 }}>
+            Skills
+          </ResponsiveTypography>
           {TechStack.map((skillset) => (
-            <Typography key={skillset.title} sx={{ fontWeight: '700' }}>
+            <Typography variant="body1" key={skillset.title} sx={{ fontWeight: '700', my: 0.5 }}>
               {skillset.title}:{' '}
               <Typography component="span">{skillset.items.join(', ')}</Typography>
             </Typography>

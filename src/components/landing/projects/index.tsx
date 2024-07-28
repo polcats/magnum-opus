@@ -4,6 +4,7 @@ import WebIcon from '@mui/icons-material/Web';
 import { Section } from '../section';
 import { ProjectGrid } from './grid';
 import { ProjectCard } from './card';
+import { ResponsiveTypography } from '@/components/theme/typography';
 
 const projects: ProjectCard[] = [
   {
@@ -33,20 +34,20 @@ export const ProjectsSection = () => {
     <Section id="Projects" alt>
       <Box
         sx={{
-          width: { s: '100%', md: 900 },
+          width: { xs: '100%', md: 900 },
           alignSelf: 'center',
         }}
       >
-        <Typography variant="h3" sx={{ fontWeight: '600' }}>
+        <ResponsiveTypography variant="h4" sx={{ fontWeight: '600' }}>
           Recent Projects (2024)
-        </Typography>
-        <Typography
+        </ResponsiveTypography>
+        <ResponsiveTypography
           variant="body1"
           sx={{ mt: 1, color: theme.palette.grey[100], fontStyle: 'italic' }}
         >
           These are personal projects that I made for my own use. I decided make a playground of
           them integrated in my portfolio.
-        </Typography>
+        </ResponsiveTypography>
 
         <ProjectGrid sx={{ mt: 1 }} projects={projects} />
       </Box>

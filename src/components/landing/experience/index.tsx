@@ -4,6 +4,7 @@ import { getYearsOfExperience } from '@/utils/dates';
 
 import { Section } from '../section';
 import { ExperienceItem } from './item';
+import { ResponsiveTypography } from '@/components/theme/typography';
 
 const EXPERIENCES = [
   {
@@ -28,13 +29,22 @@ export const ExperienceSection = () => {
     <Section id="Experience">
       <Box
         sx={{
-          width: { s: '100%', md: 900 },
+          width: { xs: '100%', md: 900 },
           alignSelf: 'center',
         }}
       >
-        <Typography variant="h4" sx={{ fontWeight: '600' }}>
+        <ResponsiveTypography
+          variant="h4"
+          sx={{
+            fontWeight: '600',
+            fontSize: {
+              xs: '1.75rem',
+              sm: '2rem',
+            },
+          }}
+        >
           Experience Summary
-        </Typography>
+        </ResponsiveTypography>
 
         <Divider sx={{ borderBottom: `1px solid ${theme.palette.grey[600]}`, my: 2 }} />
         <Box

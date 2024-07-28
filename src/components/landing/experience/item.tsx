@@ -1,3 +1,4 @@
+import { ResponsiveTypography } from '@/components/theme/typography';
 import { getMonthNameAndYear, getYearsOfExperience } from '@/utils/dates';
 import { Box, Divider, Typography, useTheme } from '@mui/material';
 
@@ -26,20 +27,28 @@ export const ExperienceItem: React.FC<ExperienceItem> = ({
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: {
+            xs: 'column',
+            md: 'row',
+          },
           justifyContent: 'space-between',
         }}
       >
-        <Typography variant="h5" sx={{ fontWeight: '600' }}>
+        <ResponsiveTypography
+          variant="h5"
+          sx={{
+            fontWeight: '600',
+          }}
+        >
           {title}
-        </Typography>
-        <Typography variant="subtitle1">
+        </ResponsiveTypography>
+        <ResponsiveTypography variant="subtitle1">
           {start} &mdash; {end} ▪{' '}
           {getYearsOfExperience(new Date(startDate), endDate ? new Date(endDate) : undefined)}
-        </Typography>{' '}
+        </ResponsiveTypography>
       </Box>
 
-      <Typography
+      <ResponsiveTypography
         variant="body1"
         sx={{
           mt: 1,
@@ -49,7 +58,7 @@ export const ExperienceItem: React.FC<ExperienceItem> = ({
         }}
       >
         {description}
-      </Typography>
+      </ResponsiveTypography>
       {divider && <Divider sx={{ borderBottom: `1px solid ${theme.palette.grey[800]}`, mt: 2 }} />}
     </Box>
   );
