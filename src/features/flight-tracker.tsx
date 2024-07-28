@@ -18,6 +18,7 @@ import { AirplaneMap } from '@/components/flight-tracker/map';
 import { AircraftTrack, AircraftData, SnackBar } from '@/types/flight-tracker';
 import { Navigation } from '@/components/common/navigation';
 import { useApi } from '@/hooks/useApi';
+import { appConfig } from '@/app.config';
 
 export const FlightTracker = () => {
   const api = useApi();
@@ -93,7 +94,7 @@ export const FlightTracker = () => {
       await getFlightData(icao24);
     };
 
-    const intervalId = setInterval(fetch, 10000);
+    const intervalId = setInterval(fetch, appConfig.MAP_UPDATE_INTERVAL);
     return () => clearInterval(intervalId);
   }, [getFlightData, icao24]);
 
@@ -111,6 +112,13 @@ export const FlightTracker = () => {
         }}
       >
         <AirplaneMap heading={heading} positions={positions} />
+
+        {aircraftData && (
+          <Typography variant="caption" sx={{ fontStyle: 'italic' }}>
+            Map automatically updates every {appConfig.MAP_UPDATE_INTERVAL / 1000} second(s){' '}
+          </Typography>
+        )}
+
         <Typography variant="caption" sx={{ textAlign: 'center', mt: 2, fontStyle: 'italic' }}>
           Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic and Matthias
           Wilhelm. &quot;Bringing Up OpenSky: A Large-scale ADS-B Sensor Network for Research&quot;.
