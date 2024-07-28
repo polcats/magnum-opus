@@ -1,13 +1,13 @@
 import { Grid, GridOwnProps } from '@mui/material';
 import React from 'react';
 
-import { ProjectCard } from './item';
+import { ProjectCard } from './card';
 
 type Props = {
   projects: ProjectCard[];
 } & GridOwnProps;
 
-export const CardGrid: React.FC<Props> = ({ projects, ...others }) => {
+export const ProjectGrid: React.FC<Props> = ({ projects, ...others }) => {
   return (
     <Grid container spacing={2} {...others}>
       {projects.map((project) => (

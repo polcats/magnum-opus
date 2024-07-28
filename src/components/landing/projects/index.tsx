@@ -1,9 +1,9 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import WebIcon from '@mui/icons-material/Web';
 
-import { Section } from './section';
-import { CardGrid } from './cards/grid';
-import { ProjectCard } from './cards/item';
+import { Section } from '../section';
+import { ProjectGrid } from './grid';
+import { ProjectCard } from './card';
 
 const projects: ProjectCard[] = [
   {
@@ -43,7 +43,7 @@ export const ProjectsSection = () => {
           them integrated in my portfolio.
         </Typography>
 
-        <CardGrid sx={{ mt: 1 }} projects={projects} />
+        <ProjectGrid sx={{ mt: 1 }} projects={projects} />
       </Box>
     </Section>
   );
