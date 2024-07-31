@@ -55,7 +55,16 @@ export const ProjectsSection = () => {
           integrated in my portfolio.
         </ResponsiveTypography>
 
-        <ProjectGrid sx={{ mt: 1 }} projects={projects} />
+        <ProjectGrid
+          sx={{
+            mt: 1,
+            flexDirection: {
+              xs: 'column',
+              sm: 'row',
+            },
+          }}
+          projects={projects}
+        />
       </Box>
     </Section>
   );

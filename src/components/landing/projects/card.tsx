@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, CardActionArea, Chip, useTheme } from '@mui/material';
-import { QuestionMark, SvgIconComponent } from '@mui/icons-material';
+import { QuestionMark, ConstructionRounded, SvgIconComponent } from '@mui/icons-material';
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 export type ProjectCard = {
@@ -29,10 +29,24 @@ export const ProjectCard: React.FC<ProjectCard> = ({
   const theme = useTheme();
   const { mode } = useThemeSwitcher();
   return (
-    <Card sx={{ minWidth: 200, maxWidth: 200 }}>
+    <Card
+      sx={{
+        minWidth: {
+          xs: '100%',
+          sm: 200,
+        },
+        maxWidth: {
+          xs: '100%',
+          sm: 200,
+        },
+      }}
+    >
       <CardActionArea
         sx={{
-          minHeight: 500,
+          minHeight: {
+            xs: 'auto',
+            sm: 500,
+          },
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
@@ -41,12 +55,25 @@ export const ProjectCard: React.FC<ProjectCard> = ({
         {...(href ? { href } : {})}
       >
         {image ? (
-          <CardMedia component="img" height="140" image={image} alt={title} />
+          <CardMedia
+            component="img"
+            sx={{
+              height: {
+                xs: 80,
+                sm: 140,
+              },
+            }}
+            image={image}
+            alt={title}
+          />
         ) : (
           <Box
             sx={{
-              height: 140,
-              width: 225,
+              height: {
+                xs: 80,
+                sm: 140,
+              },
+              width: '100%',
               justifyContent: 'center',
               alignItems: 'center',
               alignContent: 'center',
@@ -55,12 +82,12 @@ export const ProjectCard: React.FC<ProjectCard> = ({
               backgroundColor: mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[300],
             }}
           >
-            <>{icon ?? <QuestionMark sx={{ fontSize: 100 }} />}</>
+            <>{icon ?? <ConstructionRounded sx={{ fontSize: 50 }} />}</>
           </Box>
         )}
 
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent sx={{ width: '100%' }}>
+          <Typography gutterBottom variant="h5">
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
