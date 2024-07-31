@@ -9,6 +9,7 @@ type AppConfig = {
   OPENWEATHER_BASE_URL: string;
   GEOCODING_API_URL: string;
   OPENWEATHER_API_URL: string;
+  THEME_COOKIE_KEY: string;
   [key: string]: string | number;
 };
 
@@ -30,6 +31,8 @@ const getEnvVariables = (): AppConfig => {
     OPENWEATHER_BASE_URL: process.env.NEXT_PUBLIC_OPENWEATHER_BASE_URL || '',
     GEOCODING_API_URL: process.env.NEXT_PUBLIC_GEOCODING_API_URL || '',
     OPENWEATHER_API_URL: process.env.NEXT_PUBLIC_OPENWEATHER_API_URL || '',
+
+    THEME_COOKIE_KEY: process.env.NEXT_PUBLIC_THEME_COOKIE_KEY || '',
   };
 };
 

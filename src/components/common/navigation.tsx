@@ -1,5 +1,8 @@
 import { AppBar, Box, Button, IconButton, Toolbar } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 type Item = {
   name: string;
@@ -26,6 +29,7 @@ type Props = {
 };
 
 export const Navigation: React.FC<Props> = ({ type }) => {
+  const { toggleMode, mode } = useThemeSwitcher();
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: 'smooth' });
@@ -50,18 +54,23 @@ export const Navigation: React.FC<Props> = ({ type }) => {
       >
         <Box sx={{ display: { xs: type === 'home' ? 'none' : 'block', sm: 'block' } }}>
           {type === 'home' ? (
-            NAV_ITEMS.map((item) => (
-              <Button
-                key={item.name}
-                sx={{ color: '#fff' }}
-                onClick={() => scrollToSection(item.id)}
-              >
-                {item.name}
-              </Button>
-            ))
+            <>
+              {NAV_ITEMS.map((item) => (
+                <Button
+                  key={item.name}
+                  sx={{ color: '#fff' }}
+                  onClick={() => scrollToSection(item.id)}
+                >
+                  {item.name}
+                </Button>
+              ))}
+              <IconButton sx={{ ml: 1 }} onClick={toggleMode} color="inherit">
+                {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            </>
           ) : (
             <IconButton href="/">
-              <ArrowBackIcon />
+              <ArrowBackIcon sx={{ color: '#FFFFFF' }} />
             </IconButton>
           )}
         </Box>

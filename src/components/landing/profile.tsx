@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { Section } from './section';
 import { ResponsiveTypography } from '../theme/typography';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 type SkillSet = {
   title: string;
@@ -81,6 +82,7 @@ const TechStack: SkillSet[] = [
 
 export const ProfileSection = () => {
   const theme = useTheme();
+  const { mode } = useThemeSwitcher();
   const lessThanSmall = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Section id="Profile">
@@ -88,11 +90,17 @@ export const ProfileSection = () => {
         <ResponsiveTypography variant="h2" sx={{ fontWeight: '600' }}>
           Paul Jimuel Catalan
         </ResponsiveTypography>
-        <ResponsiveTypography variant="h4" sx={{ color: theme.palette.grey[500] }}>
+        <ResponsiveTypography
+          variant="h4"
+          sx={{ color: mode === 'dark' ? theme.palette.grey[500] : theme.palette.grey[800] }}
+        >
           Full Stack Software Engineer
         </ResponsiveTypography>
 
-        <ResponsiveTypography variant="body1" sx={{ mt: 1, color: theme.palette.grey[500] }}>
+        <ResponsiveTypography
+          variant="body1"
+          sx={{ mt: 1, color: mode === 'dark' ? theme.palette.grey[500] : theme.palette.grey[800] }}
+        >
           Skilled Software Engineer with extensive experience in mobile, web, and API development.
         </ResponsiveTypography>
 
@@ -107,13 +115,21 @@ export const ProfileSection = () => {
           }}
         >
           <Link href="https://github.com/polcats" sx={{ display: 'block', width: 25, height: 28 }}>
-            <GitHubIcon sx={{ fontSize: 30 }} color="action" titleAccess="GitHub" />
+            <GitHubIcon
+              sx={{ fontSize: 30, color: mode === 'dark' ? undefined : '#000' }}
+              color="action"
+              titleAccess="GitHub"
+            />
           </Link>
           <Link
             href="https://linkedin.com/in/polcats"
             sx={{ display: 'block', width: 30, height: 28 }}
           >
-            <LinkedInIcon sx={{ fontSize: 34 }} color="action" titleAccess="LinkedIn" />
+            <LinkedInIcon
+              sx={{ fontSize: 34, color: mode === 'dark' ? undefined : '#0a66c2' }}
+              color="action"
+              titleAccess="LinkedIn"
+            />
           </Link>
           <Link
             href="mailto:hello@paulcatalan.dev"
@@ -133,11 +149,14 @@ export const ProfileSection = () => {
             }}
           >
             {lessThanSmall ? (
-              <AlternateEmailIcon sx={{ fontSize: 34 }} color="action" titleAccess="Email" />
+              <AlternateEmailIcon
+                sx={{ fontSize: 34, color: mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800] }}
+                titleAccess="Email"
+              />
             ) : (
               <Typography
                 variant="h6"
-                sx={{ color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000' }}
+                sx={{ color: theme.palette.mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800] }}
               >
                 hello@paulcatalan.dev
               </Typography>

@@ -1,3 +1,4 @@
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { Box, useTheme } from '@mui/material';
 
 type Props = React.PropsWithChildren<{
@@ -7,15 +8,20 @@ type Props = React.PropsWithChildren<{
 
 export const Section: React.FC<Props> = ({ id, alt, children }) => {
   const theme = useTheme();
+  const { mode } = useThemeSwitcher();
   return (
     <Box
       id={id}
       sx={{
         display: 'flex',
-        minHeight: '90vh', // intentional: I want the adjacent section(s) to be partially visible
+        minHeight: '80vh', // intentional: I want the adjacent section(s) to be partially visible
         py: 6,
         px: { xs: 3, sm: 6 },
-        backgroundColor: alt ? theme.palette.grey[900] : theme.palette.background.default,
+        backgroundColor: alt
+          ? mode === 'dark'
+            ? theme.palette.grey[900]
+            : theme.palette.grey[100]
+          : theme.palette.background.default,
         justifyContent: 'center',
       }}
     >

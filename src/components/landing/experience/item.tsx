@@ -1,6 +1,7 @@
 import { ResponsiveTypography } from '@/components/theme/typography';
 import { getMonthNameAndYear, getYearsOfExperience } from '@/utils/dates';
-import { Box, Divider, Typography, useTheme } from '@mui/material';
+import { Box, Divider, useTheme } from '@mui/material';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 type ExperienceItem = {
   title: string;
@@ -19,6 +20,7 @@ export const ExperienceItem: React.FC<ExperienceItem> = ({
   divider,
 }) => {
   const theme = useTheme();
+  const { mode } = useThemeSwitcher();
   const start = getMonthNameAndYear(startDate);
   const end = present ? 'Present' : getMonthNameAndYear(endDate);
 
@@ -52,7 +54,7 @@ export const ExperienceItem: React.FC<ExperienceItem> = ({
         variant="body1"
         sx={{
           mt: 1,
-          color: theme.palette.grey[100],
+          color: mode === 'dark' ? theme.palette.grey[100] : theme.palette.grey[800],
           textIndent: 30,
           lineHeight: 1.6,
         }}

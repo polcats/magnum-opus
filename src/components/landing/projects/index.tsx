@@ -5,6 +5,7 @@ import { Section } from '../section';
 import { ProjectGrid } from './grid';
 import { ProjectCard } from './card';
 import { ResponsiveTypography } from '@/components/theme/typography';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 const projects: ProjectCard[] = [
   {
@@ -30,6 +31,7 @@ const projects: ProjectCard[] = [
 
 export const ProjectsSection = () => {
   const theme = useTheme();
+  const { mode } = useThemeSwitcher();
   return (
     <Section id="Projects" alt>
       <Box
@@ -43,10 +45,14 @@ export const ProjectsSection = () => {
         </ResponsiveTypography>
         <ResponsiveTypography
           variant="body1"
-          sx={{ mt: 1, color: theme.palette.grey[100], fontStyle: 'italic' }}
+          sx={{
+            mt: 1,
+            color: mode === 'dark' ? theme.palette.grey[100] : theme.palette.grey[800],
+            fontStyle: 'italic',
+          }}
         >
-          These are personal projects that I made for my own use. I decided make a playground of
-          them integrated in my portfolio.
+          Some personal projects that I made for my own use. I decided make a playground of them
+          integrated in my portfolio.
         </ResponsiveTypography>
 
         <ProjectGrid sx={{ mt: 1 }} projects={projects} />

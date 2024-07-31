@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, CardActionArea, Chip, useTheme } from '@mui/material';
 import { QuestionMark, SvgIconComponent } from '@mui/icons-material';
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 export type ProjectCard = {
   title: string;
@@ -26,6 +27,7 @@ export const ProjectCard: React.FC<ProjectCard> = ({
   href,
 }) => {
   const theme = useTheme();
+  const { mode } = useThemeSwitcher();
   return (
     <Card sx={{ minWidth: 200, maxWidth: 200 }}>
       <CardActionArea
@@ -49,8 +51,8 @@ export const ProjectCard: React.FC<ProjectCard> = ({
               alignItems: 'center',
               alignContent: 'center',
               textAlign: 'center',
-              borderBottom: '1px solid #000',
-              backgroundColor: theme.palette.grey[700],
+              borderBottom: `1px solid ${mode === 'dark' ? theme.palette.grey[600] : theme.palette.grey[100]}`,
+              backgroundColor: mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[300],
             }}
           >
             <>{icon ?? <QuestionMark sx={{ fontSize: 100 }} />}</>
@@ -79,6 +81,7 @@ export const ProjectCard: React.FC<ProjectCard> = ({
               right: 5,
               backgroundColor: 'secondary.main',
               fontWeight: 'bold',
+              color: 'white',
             }}
           />
         )}

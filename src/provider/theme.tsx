@@ -2,28 +2,38 @@ import { createTheme, Theme } from '@mui/material';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { commonThemeOptions } from '@/constants/theme';
-
-type Mode = 'light' | 'dark';
+import { ThemeMode } from '@/types/theme';
+import { getThemeMode, storeThemeMode } from '@/utils/cookies';
+import { useMount } from 'react-use';
 
 type ThemeContext = {
+  loading: boolean;
   theme: Theme;
-  mode: Mode;
+  mode: ThemeMode;
   toggleMode: () => void;
 };
 
 export const ThemeContext = React.createContext<ThemeContext>({
+  loading: true,
   theme: createTheme(),
   mode: 'dark',
   toggleMode: () => {},
 });
 
-type ThemeProps = React.PropsWithChildren<{}>;
+type ThemeProps = React.PropsWithChildren<{
+  defaultMode: ThemeMode | undefined;
+}>;
 
-export const ThemeProvider: React.FC<ThemeProps> = ({ children }) => {
-  const [mode, setMode] = useState<Mode>('dark');
+export const ThemeProvider: React.FC<ThemeProps> = ({ defaultMode = 'dark', children }) => {
+  const [mode, setMode] = useState<ThemeMode>(defaultMode);
+  const [loading, setLoading] = useState(true);
 
   const toggleMode = useCallback(() => {
-    setMode((current) => (current === 'dark' ? 'light' : 'dark'));
+    setMode((current) => {
+      const next = (current === 'dark' ? 'light' : 'dark') as ThemeMode;
+      storeThemeMode(next);
+      return next;
+    });
   }, []);
 
   const theme = useMemo(
@@ -39,12 +49,21 @@ export const ThemeProvider: React.FC<ThemeProps> = ({ children }) => {
 
   const value = useMemo(
     () => ({
+      loading,
       mode,
       theme,
       toggleMode,
     }),
     [mode, theme, toggleMode]
   );
+
+  useMount(() => {
+    const storedMode = getThemeMode();
+    if (storedMode) {
+      setMode(storedMode);
+    }
+    setLoading(false);
+  });
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
