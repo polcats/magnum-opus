@@ -10,6 +10,4 @@ export const metadata: Metadata = {
   description: 'Full Stack Software Engineer',
 };
 
-export default function FlightTrackerPage() {
-  return <FlightTracker />;
-}
+export default FlightTracker;

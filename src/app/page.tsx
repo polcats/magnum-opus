@@ -10,6 +10,4 @@ export const metadata: Metadata = {
   description: 'Full Stack Software Engineer',
 };
 
-export default function LandingPage() {
-  return <Landing />;
-}
+export default Landing;
