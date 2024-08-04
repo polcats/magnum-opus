@@ -168,7 +168,7 @@ export const ProfileSection = () => {
 
         <Box>
           <ResponsiveTypography variant="h4" sx={{ mb: 1 }}>
-            Skills
+            Tools and Technologies
           </ResponsiveTypography>
           {TechStack.map((skillset) => (
             <Typography variant="body1" key={skillset.title} sx={{ fontWeight: '700', my: 0.5 }}>

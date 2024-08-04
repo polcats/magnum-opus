@@ -7,8 +7,6 @@ import { ConstructionRounded } from '@mui/icons-material';
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { Project, TagColor } from '@/types/landing';
 import Image from 'next/image';
-import { useMemo } from 'react';
-import { useMotion } from 'react-use';
 
 export const ProjectCard: React.FC<Project> = ({
   title,
@@ -96,6 +94,7 @@ export const ProjectCard: React.FC<Project> = ({
               key={tag}
               label={capitalize(tag)}
               sx={{
+                userSelect: 'none',
                 backgroundColor:
                   tag in TagColor ? TagColor[tag as keyof typeof TagColor] : TagColor.default,
                 color: 'white',

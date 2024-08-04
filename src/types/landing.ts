@@ -8,7 +8,7 @@ export const TagColor = {
   integrated: blue[900],
   private: grey[500],
   ongoing: green[500],
-  default: grey[900],
+  default: grey[800],
 };
 
 export type Project = {
