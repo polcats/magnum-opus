@@ -1,5 +1,5 @@
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
-import { Box, Divider, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Section } from './section';
 import { ResponsiveTypography } from '../theme/typography';
 

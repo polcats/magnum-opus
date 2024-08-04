@@ -9,11 +9,11 @@ import { ProjectsSection } from '@/components/landing/projects';
 export default function Landing() {
   return (
     <>
-      <Navigation type="home" />
       <ProfileSection />
       <ExperienceSection />
       <ProjectsSection />
       <FooterSection />
+      <Navigation type="home" />
     </>
   );
 }

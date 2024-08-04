@@ -2,9 +2,10 @@ import { Grid, GridOwnProps } from '@mui/material';
 import React from 'react';
 
 import { ProjectCard } from './card';
+import { Project } from '@/types/landing';
 
 type Props = {
-  projects: ProjectCard[];
+  projects: Project[];
 } & GridOwnProps;
 
 export const ProjectGrid: React.FC<Props> = ({ projects, ...others }) => {

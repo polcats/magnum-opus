@@ -20,3 +20,14 @@ export type Project = {
   href?: string;
   tags?: Tag[];
 };
+
+export type NavItem = {
+  name: string;
+  id: string;
+  icon: React.ReactElement<SvgIconComponent>;
+};
+
+export type SkillSet = {
+  title: string;
+  items: string[];
+};

@@ -11,6 +11,7 @@ type ExperienceItem = {
   present?: boolean;
   divider: boolean;
 };
+
 export const ExperienceItem: React.FC<ExperienceItem> = ({
   title,
   description,
