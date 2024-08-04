@@ -1,7 +1,8 @@
-import { NavItem, SkillSet } from '@/types/landing';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import StarIcon from '@mui/icons-material/Star';
+
+import { NavItem, SkillSet } from '@/types/landing';
 
 /** Might move these to contentful later on */
 

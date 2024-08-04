@@ -1,5 +1,6 @@
-import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
+
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 type Props = React.PropsWithChildren<{
   id: string;

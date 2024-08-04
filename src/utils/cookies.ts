@@ -1,6 +1,7 @@
+import { getCookie, setCookie } from 'cookies-next';
+
 import { appConfig } from '@/app.config';
 import { ThemeMode } from '@/types/theme';
-import { getCookie, setCookie } from 'cookies-next';
 
 export const storeThemeMode = (mode: ThemeMode) => {
   setCookie(appConfig.THEME_COOKIE_KEY, mode, {

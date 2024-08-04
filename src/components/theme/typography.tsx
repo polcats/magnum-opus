@@ -1,4 +1,4 @@
-import { SxProps, Theme, Typography, TypographyOwnProps } from '@mui/material';
+import { Typography, TypographyOwnProps } from '@mui/material';
 import React, { useMemo } from 'react';
 import { ResponsiveStyleValue } from '@mui/system';
 import { Property } from 'csstype';
@@ -40,7 +40,7 @@ const _ResponsiveTypography: React.FC<TypographyOwnProps> = ({ children, sx, ...
         default:
           return undefined;
       }
-    }, []);
+    }, [props.variant]);
   return (
     <Typography {...props} sx={{ ...sx, fontSize }}>
       {children}

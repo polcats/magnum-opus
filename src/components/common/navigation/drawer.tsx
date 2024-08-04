@@ -1,5 +1,6 @@
-import { NAV_ITEMS } from '@/constants/landing';
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+
+import { NAV_ITEMS } from '@/constants/landing';
 
 type Props = {
   open: boolean;
@@ -17,7 +18,7 @@ const MenuDrawer: React.FC<Props> = ({ open, toggleDrawer, scrollToSection }) =>
   return (
     <Drawer open={open} onClose={toggleDrawer}>
       <List>
-        {NAV_ITEMS.map((item, index) => (
+        {NAV_ITEMS.map((item) => (
           <ListItem key={item.id} disablePadding onClick={() => handleItemClick(item.id)}>
             <ListItemButton>
               <ListItemIcon>{item.icon}</ListItemIcon>

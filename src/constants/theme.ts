@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 'use client';
 
 import { Montserrat, Roboto, Ubuntu, Lato } from 'next/font/google';
@@ -29,6 +31,6 @@ const lato = Lato({
 
 export const commonThemeOptions: ThemeOptions = {
   typography: {
-    fontFamily: ubuntu.style.fontFamily,
+    fontFamily: monserrat.style.fontFamily,
   },
 };

@@ -1,8 +1,9 @@
 import { Grid, GridOwnProps } from '@mui/material';
 import React from 'react';
 
-import { ProjectCard } from './card';
 import { Project } from '@/types/landing';
+
+import { ProjectCard } from './card';
 
 type Props = {
   projects: Project[];

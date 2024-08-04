@@ -1,5 +1,3 @@
-import { parse } from 'path';
-
 type AppConfig = {
   OPENSKY_BASE_URL: string;
   OPENSKY_API_URL_STATES_ALL: string;

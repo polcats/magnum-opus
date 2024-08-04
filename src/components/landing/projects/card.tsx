@@ -4,9 +4,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, capitalize, CardActionArea, Chip, SxProps, Theme, useTheme } from '@mui/material';
 import { ConstructionRounded } from '@mui/icons-material';
+import Image from 'next/image';
+
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { Project, TagColor } from '@/types/landing';
-import Image from 'next/image';
 
 export const ProjectCard: React.FC<Project> = ({
   title,

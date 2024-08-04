@@ -1,10 +1,4 @@
 import { Box, useTheme } from '@mui/material';
-
-import { Section } from '../section';
-import { ProjectGrid } from './grid';
-import { ResponsiveTypography } from '@/components/theme/typography';
-import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
-
 import FlightIcon from '@mui/icons-material/Flight';
 import WebIcon from '@mui/icons-material/Web';
 import ParkSharpIcon from '@mui/icons-material/ParkSharp';
@@ -15,7 +9,12 @@ import RouteIcon from '@mui/icons-material/Route';
 import MapIcon from '@mui/icons-material/Map';
 import QrCodeIcon from '@mui/icons-material/QrCode';
 
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
+import { ResponsiveTypography } from '@/components/theme/typography';
 import { Project } from '@/types/landing';
+
+import { ProjectGrid } from './grid';
+import { Section } from '../section';
 
 const projects: Project[] = [
   {

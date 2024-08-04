@@ -2,10 +2,12 @@ import { Box, Divider, Link, Typography, useMediaQuery, useTheme } from '@mui/ma
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import { Section } from './section';
-import { ResponsiveTypography } from '../theme/typography';
+
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { TechStack } from '@/constants/landing';
+
+import { Section } from './section';
+import { ResponsiveTypography } from '../theme/typography';
 
 export const ProfileSection = () => {
   const theme = useTheme();

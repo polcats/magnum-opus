@@ -1,11 +1,9 @@
-import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
-import { Box, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
+
 import { Section } from './section';
 import { ResponsiveTypography } from '../theme/typography';
 
 export const FooterSection = () => {
-  const theme = useTheme();
-  const { mode } = useThemeSwitcher();
   return (
     <Section
       id="Footer"

@@ -2,9 +2,10 @@ import { AppBar, Box, Button, IconButton, Toolbar } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import MenuIcon from '@mui/icons-material/Menu';
 import { lazy, useState } from 'react';
+
+import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { NAV_ITEMS } from '@/constants/landing';
 
 const MenuDrawer = lazy(() => import('./drawer'));

@@ -1,8 +1,9 @@
 import { Box, Divider, useTheme } from '@mui/material';
 
+import { ResponsiveTypography } from '@/components/theme/typography';
+
 import { Section } from '../section';
 import { ExperienceItem } from './item';
-import { ResponsiveTypography } from '@/components/theme/typography';
 
 const EXPERIENCES = [
   {

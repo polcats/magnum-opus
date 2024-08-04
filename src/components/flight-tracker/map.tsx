@@ -5,9 +5,9 @@ import { MapContainer, TileLayer, Polyline, Marker } from 'react-leaflet';
 import { LatLngExpression, LatLngTuple, PointExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { Box } from '@mui/material';
 
 import { MapUpdater } from './map-updater';
-import { Box } from '@mui/material';
 
 const svgIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" height="249.84" width="248.25" version="1.0">

@@ -1,6 +1,7 @@
+import { Box, Divider, useTheme } from '@mui/material';
+
 import { ResponsiveTypography } from '@/components/theme/typography';
 import { getMonthNameAndYear, getYearsOfExperience } from '@/utils/dates';
-import { Box, Divider, useTheme } from '@mui/material';
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 
 type ExperienceItem = {

@@ -1,10 +1,10 @@
 import { createTheme, Theme } from '@mui/material';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useMount } from 'react-use';
 
 import { commonThemeOptions } from '@/constants/theme';
 import { ThemeMode } from '@/types/theme';
 import { getThemeMode, storeThemeMode } from '@/utils/cookies';
-import { useMount } from 'react-use';
 
 type ThemeContext = {
   loading: boolean;
@@ -54,7 +54,7 @@ export const ThemeProvider: React.FC<ThemeProps> = ({ defaultMode = 'dark', chil
       theme,
       toggleMode,
     }),
-    [mode, theme, toggleMode]
+    [mode, loading, theme, toggleMode]
   );
 
   useMount(() => {
