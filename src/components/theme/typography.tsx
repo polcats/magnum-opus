@@ -32,6 +32,11 @@ const _ResponsiveTypography: React.FC<TypographyOwnProps> = ({ children, sx, ...
             xs: '0.9rem',
             sm: '1rem',
           };
+        case 'caption':
+          return {
+            xs: '0.70rem',
+            sm: '0.75rem',
+          };
         default:
           return undefined;
       }

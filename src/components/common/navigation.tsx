@@ -15,12 +15,12 @@ const NAV_ITEMS: Item[] = [
     id: 'Profile',
   },
   {
-    name: 'Projects',
-    id: 'Projects',
-  },
-  {
     name: 'Experience',
     id: 'Experience',
+  },
+  {
+    name: 'Projects',
+    id: 'Projects',
   },
 ];
 

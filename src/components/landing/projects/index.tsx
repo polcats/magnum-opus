@@ -92,7 +92,7 @@ export const ProjectsSection = () => {
   const theme = useTheme();
   const { mode } = useThemeSwitcher();
   return (
-    <Section id="Projects" alt>
+    <Section id="Projects">
       <Box
         sx={{
           width: { xs: '100%', md: 900 },

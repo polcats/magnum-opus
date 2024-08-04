@@ -31,7 +31,7 @@ export const ProjectCard: React.FC<Project> = ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: mode === 'dark' ? theme.palette.grey[900] : theme.palette.background.default,
   };
 
   const cardContent = () => (
@@ -59,9 +59,6 @@ export const ProjectCard: React.FC<Project> = ({
             width: '100%',
             justifyContent: 'center',
             alignItems: 'center',
-            alignContent: 'center',
-            textAlign: 'center',
-            borderBottom: `1px solid ${mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[100]}`,
             backgroundColor: mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[300],
           }}
         >

@@ -1,12 +1,13 @@
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
-import { Box, useTheme } from '@mui/material';
+import { Box, SxProps, Theme, useTheme } from '@mui/material';
 
 type Props = React.PropsWithChildren<{
   id: string;
   alt?: boolean;
+  sx?: SxProps<Theme>;
 }>;
 
-export const Section: React.FC<Props> = ({ id, alt, children }) => {
+export const Section: React.FC<Props> = ({ id, alt, sx, children }) => {
   const theme = useTheme();
   const { mode } = useThemeSwitcher();
   return (
@@ -15,7 +16,7 @@ export const Section: React.FC<Props> = ({ id, alt, children }) => {
       sx={{
         display: 'flex',
         minHeight: '80vh', // intentional: I want the adjacent section(s) to be partially visible
-        py: 6,
+        py: '64px', // based on the appbar height, prevents overscroll
         px: { xs: 3, sm: 6 },
         backgroundColor: alt
           ? mode === 'dark'
@@ -23,6 +24,7 @@ export const Section: React.FC<Props> = ({ id, alt, children }) => {
             : theme.palette.grey[100]
           : theme.palette.background.default,
         justifyContent: 'center',
+        ...sx,
       }}
     >
       {children}

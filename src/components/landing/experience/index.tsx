@@ -1,6 +1,4 @@
-import { Box, Divider, List, Typography, useTheme } from '@mui/material';
-
-import { getYearsOfExperience } from '@/utils/dates';
+import { Box, Divider, useTheme } from '@mui/material';
 
 import { Section } from '../section';
 import { ExperienceItem } from './item';
@@ -26,7 +24,7 @@ const EXPERIENCES = [
 export const ExperienceSection = () => {
   const theme = useTheme();
   return (
-    <Section id="Experience">
+    <Section id="Experience" alt>
       <Box
         sx={{
           width: { xs: '100%', md: 900 },
