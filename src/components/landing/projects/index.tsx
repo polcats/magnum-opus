@@ -60,7 +60,7 @@ const projects: Project[] = [
       'An animated visualization of sorting algorithms using ReactJS. It supports various sorting algorithms, such as Bubble Sort, Selection Sort, and Shell Sort.',
     icon: <SignalCellularAltIcon sx={{ fontSize: 50 }} />,
     tags: ['2020'],
-    href: 'https://www.paulcatalan.dev/VisuAlgo/',
+    href: 'https://polcats.github.io//VisuAlgo/',
   },
   {
     title: 'Visual Sort',
@@ -68,14 +68,15 @@ const projects: Project[] = [
       'An animated visualization of sorting algorithms using Vanilla JavaScript, HTML, and CSS. It supports various sorting algorithms, such as Bubble Sort, Selection Sort, and Shell Sort.',
     icon: <BarChartIcon sx={{ fontSize: 50 }} />,
     tags: ['2020'],
-    href: 'https://www.paulcatalan.dev/VisualSort/',
+    href: 'https://polcats.github.io//VisualSort/',
   },
   {
     title: 'Visual Search',
-    description: 'A animated visualization of searching algorithms.',
+    description:
+      'A animated visualization of searching algorithms using Javascript, HTML, and CSS.',
     icon: <RouteIcon sx={{ fontSize: 50 }} />,
     tags: ['2020'],
-    href: 'https://www.paulcatalan.dev/VisualSearch/',
+    href: 'https://polcats.github.io//VisualSearch/',
   },
   {
     title: 'Interactive Map: Saint Louis University',
@@ -83,18 +84,19 @@ const projects: Project[] = [
       'This project from my college days is a working prototype of an interactive map framework made with SVGs. It uses HTML, CSS, and Vanilla JavaScript.',
     icon: <MapIcon sx={{ fontSize: 50 }} />,
     tags: ['2018'],
-    href: 'https://www.paulcatalan.dev/InteractiveMap/',
+    href: 'https://polcats.github.io//InteractiveMap/',
   },
 ];
 
 export const ProjectsSection = () => {
   const theme = useTheme();
   const { mode } = useThemeSwitcher();
+
   return (
     <Section id="Projects">
       <Box
         sx={{
-          width: { xs: '100%', md: 900 },
+          width: { sm: '100%', md: 900 },
           alignSelf: 'center',
         }}
       >
@@ -116,7 +118,8 @@ export const ProjectsSection = () => {
             mt: 1,
             flexDirection: {
               xs: 'column',
-              sm: 'row',
+              sm: 'column',
+              md: 'row',
             },
           }}
           projects={projects}

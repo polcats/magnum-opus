@@ -65,7 +65,12 @@ export const ProjectCard: React.FC<Project> = ({
         </Box>
       )}
 
-      <CardContent sx={{ width: '100%', flex: 1 }}>
+      <CardContent
+        sx={{
+          width: '100%',
+          flex: 1,
+        }}
+      >
         <Typography gutterBottom variant="h6">
           {title}
         </Typography>
@@ -110,15 +115,13 @@ export const ProjectCard: React.FC<Project> = ({
 
   return (
     <Card
-      key={mode}
+      key={`${title}-${description}-${mode}`}
       sx={{
-        minWidth: {
+        width: {
+          xs: '100%',
           sm: '100%',
-          md: 280,
-        },
-        maxWidth: {
-          sm: '100%',
-          md: 280,
+          md: 250,
+          lg: 280,
         },
       }}
     >
