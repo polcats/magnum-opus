@@ -113,12 +113,12 @@ export const ProjectCard: React.FC<Project> = ({
       key={mode}
       sx={{
         minWidth: {
-          xs: '100%',
-          sm: 280,
+          sm: '100%',
+          md: 280,
         },
         maxWidth: {
-          xs: '100%',
-          sm: 280,
+          sm: '100%',
+          md: 280,
         },
       }}
     >
