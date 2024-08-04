@@ -20,7 +20,7 @@ import { Navigation } from '@/components/common/navigation';
 import { useApi } from '@/hooks/useApi';
 import { appConfig } from '@/app.config';
 
-export const FlightTracker = () => {
+const FlightTracker = () => {
   const api = useApi();
   const [aircraftData, setAircraftData] = useState<AircraftData | null>(null);
   const [icao24, setIcao24] = useState<string | null>(null);

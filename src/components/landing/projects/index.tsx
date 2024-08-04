@@ -6,6 +6,8 @@ import { ProjectGrid } from './grid';
 import { ProjectCard } from './card';
 import { ResponsiveTypography } from '@/components/theme/typography';
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import FlightIcon from '@mui/icons-material/Flight';
 
 const projects: ProjectCard[] = [
   {
@@ -19,9 +21,18 @@ const projects: ProjectCard[] = [
     description:
       'An app that tracks flights in real-time using the OpenSky Network API. It displays flight information, such as the flight number, origin, destination, and altitude.',
     notes: "Limitations: The OpenSky Network API doesn't provide real-time data for all flights.",
-    image: '/projects/flight-tracker.png',
+    // image: '/projects/flight-tracker.png',
+    icon: <FlightIcon sx={{ fontSize: 50 }} />,
     href: '/flight-tracker',
     beta: true,
+  },
+  {
+    title: 'Visual Sort D3',
+    description:
+      'A visual representation of sorting algorithms using D3.js. It animates the sorting process of various algorithms, such as Bubble Sort, Quick Sort, and Merge Sort.',
+    href: '/visual-sort',
+    beta: true,
+    icon: <BarChartIcon sx={{ fontSize: 50 }} />,
   },
   {
     title: 'TBA',
