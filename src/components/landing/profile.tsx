@@ -1,4 +1,4 @@
-import { Box, Divider, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, Link, Tooltip, Typography, useMediaQuery, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -43,54 +43,68 @@ export const ProfileSection = () => {
             mt: 2,
           }}
         >
-          <Link href="https://github.com/polcats" sx={{ display: 'block', width: 25, height: 28 }}>
-            <GitHubIcon
-              sx={{ fontSize: 30, color: mode === 'dark' ? undefined : '#000' }}
-              color="action"
-              titleAccess="GitHub"
-            />
-          </Link>
-          <Link
-            href="https://linkedin.com/in/polcats"
-            sx={{ display: 'block', width: 30, height: 28 }}
-          >
-            <LinkedInIcon
-              sx={{ fontSize: 34, color: mode === 'dark' ? undefined : '#0a66c2' }}
-              color="action"
-              titleAccess="LinkedIn"
-            />
-          </Link>
-          <Link
-            href="mailto:hello@paulcatalan.dev"
-            sx={{
-              ml: {
-                xs: '-3px',
-                sm: 0,
-              },
-              width: {
-                xs: 30,
-                sm: 'auto',
-              },
-              height: {
-                xs: 28,
-                sm: 24,
-              },
-            }}
-          >
-            {lessThanSmall ? (
-              <AlternateEmailIcon
-                sx={{ fontSize: 34, color: mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800] }}
-                titleAccess="Email"
+          <Tooltip title="GitHub" placement="bottom">
+            <Link
+              href="https://github.com/polcats"
+              sx={{ display: 'block', width: 25, height: 28 }}
+            >
+              <GitHubIcon
+                sx={{ fontSize: 30, color: mode === 'dark' ? undefined : '#000' }}
+                color="action"
+                titleAccess="GitHub"
               />
-            ) : (
-              <Typography
-                variant="h6"
-                sx={{ color: theme.palette.mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800] }}
-              >
-                hello@paulcatalan.dev
-              </Typography>
-            )}
-          </Link>
+            </Link>
+          </Tooltip>
+          <Tooltip title="LinkedIn" placement="bottom">
+            <Link
+              href="https://linkedin.com/in/polcats"
+              sx={{ display: 'block', width: 30, height: 28 }}
+            >
+              <LinkedInIcon
+                sx={{ fontSize: 34, color: mode === 'dark' ? undefined : '#0a66c2' }}
+                color="action"
+                titleAccess="LinkedIn"
+              />
+            </Link>
+          </Tooltip>
+          <Tooltip title="Email me" placement="bottom">
+            <Link
+              href="mailto:hello@paulcatalan.dev"
+              sx={{
+                ml: {
+                  xs: '-3px',
+                  sm: 0,
+                },
+                width: {
+                  xs: 30,
+                  sm: 'auto',
+                },
+                height: {
+                  xs: 28,
+                  sm: 24,
+                },
+              }}
+            >
+              {lessThanSmall ? (
+                <AlternateEmailIcon
+                  sx={{
+                    fontSize: 34,
+                    color: mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800],
+                  }}
+                  titleAccess="Email"
+                />
+              ) : (
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: theme.palette.mode === 'dark' ? '#FFFFFF' : theme.palette.grey[800],
+                  }}
+                >
+                  hello@paulcatalan.dev
+                </Typography>
+              )}
+            </Link>
+          </Tooltip>
         </Box>
 
         <Divider sx={{ my: 6 }} />
