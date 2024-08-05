@@ -3,12 +3,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
-import { lazy, useState } from 'react';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
 
 import { useThemeSwitcher } from '@/hooks/useThemeSwitcher';
 import { NAV_ITEMS } from '@/constants/landing';
 
-const MenuDrawer = lazy(() => import('./drawer'));
+const MenuDrawer = dynamic(() => import('./drawer'), {
+  ssr: false,
+});
 
 type Props = {
   type: 'home' | 'subpage';
@@ -34,7 +37,6 @@ export const Navigation: React.FC<Props> = ({ type }) => {
         sx={{
           justifyContent: 'center',
           width: '100%',
-          // height: 64,
         }}
       >
         <Toolbar
@@ -49,6 +51,8 @@ export const Navigation: React.FC<Props> = ({ type }) => {
             sx={{
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'flex-end',
+              flex: 1,
             }}
           >
             {type === 'home' ? (
@@ -81,9 +85,14 @@ export const Navigation: React.FC<Props> = ({ type }) => {
                 </IconButton>
               </>
             ) : (
-              <IconButton href="/">
-                <ArrowBackIcon sx={{ color: '#FFFFFF' }} />
-              </IconButton>
+              <Box sx={{ display: 'flex', flex: 1, justifyContent: 'space-between' }}>
+                <IconButton href="/">
+                  <ArrowBackIcon sx={{ color: '#FFFFFF' }} />
+                </IconButton>
+                <IconButton sx={{ ml: 1 }} onClick={toggleMode} color="inherit">
+                  {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+              </Box>
             )}
           </Box>
         </Toolbar>
