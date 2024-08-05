@@ -1,6 +1,6 @@
 import { Box, useTheme } from '@mui/material';
 import FlightIcon from '@mui/icons-material/Flight';
-import WebIcon from '@mui/icons-material/Web';
+// import WebIcon from '@mui/icons-material/Web';
 import ParkSharpIcon from '@mui/icons-material/ParkSharp';
 import TagIcon from '@mui/icons-material/Tag';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -17,13 +17,13 @@ import { ProjectGrid } from './grid';
 import { Section } from '../section';
 
 const projects: Project[] = [
-  {
-    title: 'Portfolio Website',
-    description:
-      'This website is a portfolio of my projects, skills, and experiences. It is built with Next.js, TypeScript, and Material-UI. Currently integrating old projects to act like a playground.',
-    icon: <WebIcon sx={{ fontSize: 50 }} />,
-    tags: ['beta', 'ongoing'],
-  },
+  // {
+  //   title: 'Portfolio Website',
+  //   description:
+  //     'This website is a portfolio of my projects, skills, and experiences. It is built with Next.js, TypeScript, and Material-UI. Currently integrating old projects to act like a playground.',
+  //   icon: <WebIcon sx={{ fontSize: 50 }} />,
+  //   tags: ['beta', 'ongoing'],
+  // },
   {
     title: 'Flight Tracker',
     description:
@@ -32,6 +32,17 @@ const projects: Project[] = [
     icon: <FlightIcon sx={{ fontSize: 50 }} />,
     href: '/flight-tracker',
     tags: ['beta', 'integrated', '2024'],
+  },
+
+  {
+    title: 'VisuAlgo 2024',
+    description:
+      'An animated visualization of sorting algorithms using ReactJS. It supports various sorting algorithms, such as Bubble Sort, Selection Sort, and Shell Sort.',
+    notes:
+      'Updated version of the VisuAlgo project with various improvements and scaling for smaller screens.',
+    icon: <SignalCellularAltIcon sx={{ fontSize: 50 }} />,
+    tags: ['integrated', '2024'],
+    href: 'visualgo',
   },
   {
     title: 'Hazard Expert (Hex)',

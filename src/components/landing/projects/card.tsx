@@ -31,6 +31,10 @@ export const ProjectCard: React.FC<Project> = ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     backgroundColor: mode === 'dark' ? theme.palette.grey[900] : theme.palette.background.default,
+    border: isPrivate
+      ? `2px dashed ${mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[400]}`
+      : 'none',
+    userSelect: 'none',
   };
 
   const cardContent = () => (
@@ -69,6 +73,7 @@ export const ProjectCard: React.FC<Project> = ({
         sx={{
           width: '100%',
           flex: 1,
+          backgroundColor: mode === 'dark' ? 'transparent' : theme.palette.grey[100],
         }}
       >
         <Typography gutterBottom variant="h6">
