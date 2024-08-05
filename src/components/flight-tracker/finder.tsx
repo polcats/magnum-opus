@@ -35,12 +35,7 @@ export const AirplaneFinder: React.FC<Props> = ({ setIcao24, handleSetMessage })
   }, [api.flightTracker, flightNumber, handleSetMessage, setIcao24]);
 
   return (
-    <Container
-      sx={{
-        mt: 12,
-        p: 0,
-      }}
-    >
+    <Container>
       <Box
         id="AirplaneFinder"
         sx={{

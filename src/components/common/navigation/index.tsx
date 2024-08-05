@@ -34,7 +34,7 @@ export const Navigation: React.FC<Props> = ({ type }) => {
         sx={{
           justifyContent: 'center',
           width: '100%',
-          height: 64,
+          // height: 64,
         }}
       >
         <Toolbar

@@ -101,7 +101,6 @@ export const FlightTracker = () => {
   return (
     <>
       <Navigation type="subpage" />
-
       <Box
         sx={{
           justifyContent: 'center',
@@ -109,6 +108,7 @@ export const FlightTracker = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          backgroundColor: 'red',
         }}
       >
         <AirplaneFinder setIcao24={handleSetIcao24} handleSetMessage={handleSetMessage} />

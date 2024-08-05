@@ -1,3 +1,9 @@
 html {
   padding-top: 64px; /* Height of the floating nav*/
 }
+
+@media screen and (max-width: 600px) {
+  html {
+    padding-top: 56px; /* Height of the floating nav*/
+  }
+}
