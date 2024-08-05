@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { RootProvider } from '@/provider/root';
+import '@/styles/app.css';
 
 export const metadata: Metadata = {
   title: 'Paul Jimuel Catalan',
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
   icons: { icon: 'https://www.paulcatalan.dev//favicon.ico' },
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
